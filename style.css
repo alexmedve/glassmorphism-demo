@@ -1,0 +1,154 @@
+/* global declarations  */
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --color-white: #fcfcfc;
+}
+
+html,
+body {
+    font-size: 62.5%;
+}
+
+body {
+    height: 100vh;
+    overflow: hidden;
+    font-family: 'Chakra Petch', sans-serif;
+    font-weight: 400;
+}
+
+/* background image  */
+.background-image {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    animation-name: bg-anim;
+    animation-duration: 7s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes bg-anim {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.1);
+    }
+}
+
+/* glassmorphism container  */
+
+.container {
+    position: absolute;
+    height: 90%;
+    width: 90%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(13, 124, 161, 0.2);
+    backdrop-filter: blur(30px);
+}
+
+/* typography */
+
+.heading {
+    font-size: 5rem;
+    font-weight: 700;
+    margin-top: 10rem;
+    margin-left: 3rem;
+    letter-spacing: 0.3rem;
+    color: var(--color-white);
+    animation-name: heading-anim;
+    animation-duration: 1s;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
+    transform: translateY(2rem);
+    clip-path: inset(0 0 100% 0);
+}
+
+@keyframes heading-anim {
+    from {
+        transform: translateY(2rem);
+        clip-path: inset(0 0 100% 0);
+    }
+
+    to {
+        transform: translateY(0);
+        clip-path: inset(0 0 0 0);
+    }
+}
+
+.text {
+    font-size: 2rem;
+    margin: 3rem;
+    letter-spacing: 0.3rem;
+    color: var(--color-white);
+    animation-name: opacity-in;
+    animation-duration: 1s;
+    animation-delay: 4s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+
+@keyframes opacity-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 0.9;
+    }
+}
+
+/* button  */
+
+.button,
+.button:link,
+.button:visited {
+    display: block;
+    position: relative;
+    text-decoration: none;
+    color: var(--color-white);
+    font-size: 2rem;
+    margin: 0 auto;
+    margin-top: 10rem;
+    border: 1px solid var(--color-white);
+    height: 6rem;
+    width: 30rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation-name: opacity-in;
+    animation-duration: 1s;
+    animation-delay: 5s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+
+.button::before {
+    content: "";
+    position: absolute;
+    height: 10rem;
+    width: 34rem;
+    left: -2rem;
+    top: -2rem;
+    border: 1px solid var(--color-white);
+    transform: scale(0.5);
+    opacity: 0;
+    transition: all .3s;
+}
+
+.button:hover::before {
+    transform: scale(1);
+    opacity: 1;
+}
